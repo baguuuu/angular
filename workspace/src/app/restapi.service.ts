@@ -10,10 +10,10 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RestapiService {
-  configurationUrl = "/Configuration/";
-  grpUrl = '/Grp/';
-  usrUrl = '/Usrs/';
-  authUrl = '/dj-rest-auth/login/'
+  configurationUrl = "http://localhost:8000/Configuration/";
+  grpUrl = 'http://localhost:8000/Grp/';
+  usrUrl = 'http://localhost:8000/Usrs/';
+  authUrl = 'http://localhost:8000/dj-rest-auth/login/'
   adminToken="9af792e30631062d4cc44e63bb29705ee15025b5";
   
   constructor(private http: HttpClient) { }
@@ -42,11 +42,11 @@ export class RestapiService {
     return this.http.get<any>(this.usrUrl)
   }
   getUsrbyId(id:any){
-    return this.http.get<any>(this.usrUrl+id)
+    return this.http.get<any>(this.usrUrl+id+'/')
   }
   getmyGrp(usr:any){
     console.log(usr)
-    return this.http.get<any>('/MyGrp/?grp_id='+usr.grp_id)
+    return this.http.get<any>('http://localhost:8000/MyGrp/?grp_id='+usr.grp_id)
   }
   updateUsr(data:any){
     return this.http.patch<any>(this.usrUrl+data.usr_id+'/', data)
