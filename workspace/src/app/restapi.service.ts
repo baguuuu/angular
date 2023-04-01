@@ -33,7 +33,7 @@ export class RestapiService {
     return this.http.get<any>(this.grpUrl)
   }
   delGrp(grpid:any){
-    return this.http.delete<any>(this.grpUrl+'/'+grpid+'/')
+    return this.http.delete<any>(this.grpUrl+grpid+'/')
   }
   createGrp(data:any){
     return this.http.post<any>(this.grpUrl, data)
